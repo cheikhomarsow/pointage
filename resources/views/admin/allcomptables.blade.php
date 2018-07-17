@@ -23,9 +23,14 @@
             <div class="card">
             <ul class="list-group">
                 <li class="list-group-item active">Comptables</li>
-                @foreach($comptables as $comptable)
-                    <li class="list-group-item"><a href="{{ route('admin.comptable', $comptable->matricule) }}">{{ $comptable->firstname }} {{ $comptable->lastname }}</a></li>
-                @endforeach
+                @if($comptables->count() > 0) {
+                    @foreach($comptables as $comptable)
+                        <li class="list-group-item"><a href="{{ route('admin.comptable', $comptable->matricule) }}">{{ $comptable->firstname }} {{ $comptable->lastname }}</a></li>
+                    @endforeach
+                @else 
+                    <li class="list-group-item">Pas de comptables...</li>
+                @endif
+                
               
             </ul>
                 
